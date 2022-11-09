@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
@@ -8,6 +7,7 @@ import {
 } from 'react-router-dom';
 import App from './App';
 import ErrorPage from './ErrorPage';
+import ParkingLotDetail from './components/ParkingLotDetail';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter(
@@ -16,6 +16,10 @@ const router = createBrowserRouter(
       path: '/',
       element: <App />,
       errorElement: <ErrorPage />,
+    },
+    {
+      path: 'parking-lot/:id',
+      element: <ParkingLotDetail />,
     },
   ],
   {
