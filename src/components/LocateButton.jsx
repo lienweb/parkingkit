@@ -1,4 +1,3 @@
-/* eslint-disable react/no-this-in-sfc */
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Marker, Popup, useMap } from 'react-leaflet';
@@ -29,6 +28,7 @@ function LocateButton({ center }) {
     currentRadius.addTo(map);
   }
   function handleLocationNotFound() {
+    // eslint-disable-next-line no-alert
     window.alert('無法定位，定位為預設地點');
     map.flyTo(center);
   }

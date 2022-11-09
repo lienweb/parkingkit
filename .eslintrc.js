@@ -28,5 +28,12 @@ module.exports = {
     'no-multi-spaces': ['error'],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'no-console': 'off',
+    'react/no-this-in-sfc': 'off',
+    'func-names': 'off',
+    'import/no-named-as-default': 'off',
+    'no-named-as-default-member': 'off',
+    'react/require-default-props': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };

@@ -7,6 +7,7 @@ import {
 import marker from '../assets/marker.png';
 import LocateButton from './LocateButton';
 import SearchButton from './SearchButton';
+import ParkingMarkers from './ParkingMarkers';
 
 function Map() {
   const center = { lat: 25.026312001265776, lng: 121.5435894427204 };
@@ -38,6 +39,7 @@ function Map() {
             <b>當前位置</b>
           </Popup>
         </Marker>
+        <ParkingMarkers />
       </MapContainer>
     </div>
   );
