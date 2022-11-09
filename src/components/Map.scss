@@ -8,3 +8,20 @@
   height: 90vh;
   overflow-y: scroll;
 }
+
+.leaflet-control {}
+
+.leaflet-touch .leaflet-bar{
+  border: none;
+}
+
+.btn-wrapper {
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+
+  & .material-icons {
+    padding: 3px;
+  }
+}
+

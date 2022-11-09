@@ -5,6 +5,7 @@ import {
   MapContainer, TileLayer, ZoomControl, Marker, Popup,
 } from 'react-leaflet';
 import marker from '../assets/marker.png';
+import LocateButton from './LocateButton';
 
 function Map() {
   const center = { lat: 25.026312001265776, lng: 121.5435894427204 };
@@ -29,6 +30,7 @@ function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ZoomControl position="bottomright" />
+        <LocateButton center={center} />
         <Marker position={[center.lat, center.lng]} icon={markerIcon}>
           <Popup>
             <b>當前位置</b>

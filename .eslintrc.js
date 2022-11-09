@@ -7,6 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
   ],
   overrides: [
   ],
@@ -25,5 +26,7 @@ module.exports = {
     indent: ['error', 2],
     // we want to avoid extraneous spaces
     'no-multi-spaces': ['error'],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };
