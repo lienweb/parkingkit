@@ -1,5 +1,4 @@
 /* eslint-disable react/no-this-in-sfc */
-/* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Marker, Popup, useMap } from 'react-leaflet';
