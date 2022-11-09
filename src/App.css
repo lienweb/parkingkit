@@ -3,3 +3,28 @@
   text-align: center;
   overflow: scroll;
 }
+
+.image__fluid {
+  display: block;
+  width: 100%;
+}
+
+.image__fixed-width-1 {
+  width: 30px;
+  height: 28px;
+}
+
+.image__fixed-width-2 {
+  width: 35px;
+  height: 28px;
+}
+
+.image__text {
+  margin: 0;
+  font-size: 26px;
+}
+
+.image__lg {
+  border-radius: 10px;
+  object-fit: cover;
+}
