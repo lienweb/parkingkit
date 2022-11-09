@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-// import "leaflet.markercluster/dist/MarkerCluster.css";
-// import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import proj4 from 'proj4';
 import MarkerClusterGroup from './MarkerClusterGroup';
 import parkingLotApis from '../apis/parkingLot';
@@ -32,8 +30,23 @@ function ParkingMarkers() {
     callMultipleApis();
   }, []);
 
-  console.log(`info:${coordinates.length}`);
-  console.log(`avail:${availability.length}`);
+  useEffect(() => {
+    async function updateAvail() {
+      setTimeout(() => {
+        const newAvail = parkingLotApis.fetchAvailability();
+        if (newAvail.length) {
+          setAvailability(newAvail);
+          console.log('update');
+        }
+        console.log('skip update');
+      }, 3000000);
+    }
+    updateAvail();
+    console.log(`1)avail:${availability.length}[${typeof (availability)}]`);
+  }, [availability]);
+
+  // console.log(`info:${coordinates.length}`);
+  console.log(`2)avail:${availability.length}`);
 
   // get coordinates
   const coordArr = coordinates.map((coordinate) => {
