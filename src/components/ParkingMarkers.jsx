@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+// import "leaflet.markercluster/dist/MarkerCluster.css";
+// import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import proj4 from 'proj4';
+import MarkerClusterGroup from './MarkerClusterGroup';
 import parkingLotApis from '../apis/parkingLot';
 import ParkingMarker from './ParkingMarker';
 
@@ -79,7 +82,7 @@ function ParkingMarkers() {
   // console.log(infoArray);
 
   return (
-    <>
+    <MarkerClusterGroup>
       {
         infoArray.map((info) => (
           <ParkingMarker
@@ -89,7 +92,7 @@ function ParkingMarkers() {
           />
         ))
       }
-    </>
+    </MarkerClusterGroup>
   );
 }
 

@@ -12,6 +12,9 @@ module.exports = {
   overrides: [
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
@@ -32,8 +35,10 @@ module.exports = {
     'react/no-this-in-sfc': 'off',
     'func-names': 'off',
     'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
     'no-named-as-default-member': 'off',
     'react/require-default-props': 'off',
     'react/forbid-prop-types': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

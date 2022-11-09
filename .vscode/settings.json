@@ -3,6 +3,7 @@
     "availablebus",
     "availablecar",
     "availablemotor",
-    "locationerror"
+    "locationerror",
+    "markercluster"
   ]
 }
