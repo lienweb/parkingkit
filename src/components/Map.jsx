@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css';
-import './Map.scss';
+import './map.scss';
 import L from 'leaflet';
 import {
   MapContainer, TileLayer, ZoomControl, Marker, Popup,
@@ -17,25 +17,25 @@ function Map() {
   });
 
   return (
-    <MapContainer
-      // style={{ height: '450px', width: '100%' }}
-      center={[center.lat, center.lng]}
-      zoom={zoomLevel}
-      scrollWheelZoom
-      zoomControl={false}
-      className="map__container"
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www. openstreetmap.org/copyright">OpenStreetMap Contributors</ a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <ZoomControl position="bottomright" />
-      <Marker position={[center.lat, center.lng]} icon={markerIcon}>
-        <Popup>
-          <b>當前位置</b>
-        </Popup>
-      </Marker>
-    </MapContainer>
+    <div className="map__container">
+      <MapContainer
+        center={[center.lat, center.lng]}
+        zoom={zoomLevel}
+        scrollWheelZoom
+        zoomControl={false}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www. openstreetmap.org/copyright">OpenStreetMap Contributors</ a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <ZoomControl position="bottomright" />
+        <Marker position={[center.lat, center.lng]} icon={markerIcon}>
+          <Popup>
+            <b>當前位置</b>
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 }
 

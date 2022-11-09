@@ -7,7 +7,7 @@ import logo from '../assets/logo.svg';
 
 function NavBar() {
   return (
-    <Navbar key="false" bg="light" expand="md" className="nav__sidepanel">
+    <Navbar key="false" bg="light" expand="md" className="nav__container">
       <Container fluid>
         <Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
         <Navbar.Brand href="/">
