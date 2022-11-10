@@ -1,8 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import proj4 from 'proj4';
 import MarkerClusterGroup from './MarkerClusterGroup';
 import parkingLotApis from '../apis/parkingLot';
 import ParkingMarker from './ParkingMarker';
+
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+
+  // Remember the latest function.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function execute() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      const id = setInterval(execute, delay);
+      return () => clearInterval(id);
+    }
+    return undefined;
+  }, [delay]);
+}
 
 // pass api info into marker
 function ParkingMarkers() {
@@ -13,7 +34,7 @@ function ParkingMarkers() {
     ['EPSG:4326', '+proj=longlat +datum=WGS84 +no_defs +type=crs'],
   ]);
 
-  // get data from api
+  // get data from api when component mounted
   useEffect(() => {
     async function callMultipleApis() {
       const promises = [
@@ -30,20 +51,13 @@ function ParkingMarkers() {
     callMultipleApis();
   }, []);
 
-  useEffect(() => {
-    async function updateAvail() {
-      setTimeout(() => {
-        const newAvail = parkingLotApis.fetchAvailability();
-        if (newAvail.length) {
-          setAvailability(newAvail);
-          console.log('update');
-        }
-        console.log('skip update');
-      }, 3000000);
-    }
-    updateAvail();
-    // console.log(`1)avail:${availability.length}[${typeof (availability)}]`);
-  }, [availability]);
+  useInterval(() => {
+    const newAvail = parkingLotApis.fetchAvailability();
+    newAvail.then((res) => {
+      setAvailability(res);
+      console.log('update');
+    }).catch((err) => console.log(`skip update:${err}`));
+  }, 60000);
 
   // console.log(`info:${coordinates.length}`);
   // console.log(`2)avail:${availability.length}`);
