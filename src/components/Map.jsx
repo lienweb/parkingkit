@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css';
-import './map.scss';
+import './Map.scss';
 import {
   MapContainer, TileLayer, ZoomControl,
 } from 'react-leaflet';

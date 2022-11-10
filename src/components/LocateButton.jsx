@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import marker from '../assets/marker-dot.svg';
-import './map.scss';
+import './Map.scss';
 
 function LocateButton({ center }) {
   const map = useMap();
