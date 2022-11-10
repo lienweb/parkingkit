@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 const fetchInfo = async () => {
   try {
     const res = await axiosInstance.get(`${process.env.PUBLIC_URL}/data/info.json`);
-    return res.data.park;
+    return res.data.data.park;
   } catch (err) {
     if (err.response) {
       // if res code not 200

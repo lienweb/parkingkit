@@ -42,11 +42,11 @@ function ParkingMarkers() {
       }, 3000000);
     }
     updateAvail();
-    console.log(`1)avail:${availability.length}[${typeof (availability)}]`);
+    // console.log(`1)avail:${availability.length}[${typeof (availability)}]`);
   }, [availability]);
 
   // console.log(`info:${coordinates.length}`);
-  console.log(`2)avail:${availability.length}`);
+  // console.log(`2)avail:${availability.length}`);
 
   // get coordinates
   const coordArr = coordinates.map((coordinate) => {
