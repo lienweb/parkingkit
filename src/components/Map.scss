@@ -1,15 +1,13 @@
 .map__container {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 
 .leaflet-container {
   width: 100%;
-  height: 90vh;
-  overflow-y: scroll;
+  height: 100vh;
+  overflow: hidden;
 }
-
-.leaflet-control {}
 
 .leaflet-touch .leaflet-bar {
   border: none;
@@ -48,7 +46,7 @@ div.marker-cluster-large div {
   background-color: #002171;
 }
 
-.markercluster span {
+.marker-cluster span {
   color: #fff;
 }
 

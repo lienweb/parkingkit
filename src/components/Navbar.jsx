@@ -1,3 +1,5 @@
+import './navbar.scss';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,9 +12,9 @@ function NavBar() {
     <Navbar key="false" bg="light" expand="md" className="nav__container">
       <Container fluid>
         <Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
-        <Navbar.Brand href="/">
+        <Link to="/" className="navbar-brand">
           <img src={logo} alt="logo" className="image__fluid" />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Offcanvas
           id="offcanvasNavbar-expand-false"
           aria-labelledby="offcanvasNavbar-expand-false"

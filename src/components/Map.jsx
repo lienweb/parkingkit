@@ -3,7 +3,7 @@ import './map.scss';
 import {
   MapContainer, TileLayer, ZoomControl,
 } from 'react-leaflet';
-// import marker from '../assets/marker.png';
+// import NavBar from './Navbar';
 import LocateButton from './LocateButton';
 import SearchButton from './SearchButton';
 import ParkingMarkers from './ParkingMarkers';
@@ -11,15 +11,10 @@ import ParkingMarkers from './ParkingMarkers';
 function Map() {
   const center = { lat: 25.026312001265776, lng: 121.5435894427204 };
   const zoomLevel = 15;
-  // const markerIcon = new L.Icon({
-  //   iconUrl: marker,
-  //   iconSize: [24, 36],
-  //   iconAnchor: [12, 36], // align when zoom in out
-  //   popupAnchor: [0, -46],
-  // });
 
   return (
     <div className="map__container">
+      {/* <NavBar /> */}
       <MapContainer
         center={[center.lat, center.lng]}
         zoom={zoomLevel}
@@ -31,13 +26,8 @@ function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ZoomControl position="bottomright" />
-        <SearchButton position="topleft" />
         <LocateButton center={center} />
-        {/* <Marker position={[center.lat, center.lng]} icon={markerIcon}>
-          <Popup>
-            <b>當前位置</b>
-          </Popup>
-        </Marker> */}
+        <SearchButton position="bottomright" />
         <ParkingMarkers />
       </MapContainer>
     </div>
