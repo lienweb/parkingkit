@@ -18,3 +18,18 @@
 .btn-close:focus {
   box-shadow: none;
 }
+
+.h5,
+.nav-link,
+.navbar-light .navbar-nav .nav-link {
+  color: var(--bs-primary);
+}
+
+.offcanvas-header,
+.offcanvas-body {
+  padding: 1rem 2rem;
+}
+
+.nav-link{
+  padding: .8rem 1rem;
+}
