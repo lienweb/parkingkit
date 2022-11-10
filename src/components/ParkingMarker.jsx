@@ -3,6 +3,7 @@ import { Marker, Popup } from 'react-leaflet';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Container, Badge } from 'react-bootstrap';
+import './parkingLotDetail.scss';
 import marker from '../assets/marker.svg';
 
 function ParkingMarker({ position, description }) {
@@ -26,7 +27,9 @@ function ParkingMarker({ position, description }) {
               {description.totalCar ? description.totalCar : 'N/A'}
 
             </h5>
-            <Badge bg="secondary">營業中</Badge>
+            <Badge bg="primary">
+              營業中
+            </Badge>
           </div>
           <div className="d-flex justify-content-between align-items-center">
             <div>
@@ -35,7 +38,7 @@ function ParkingMarker({ position, description }) {
             </div>
             <Link
               to={`/parking-lot/${description.id}`}
-              className="btn btn-secondary text-white"
+              className="btn btn-primary text-white"
               state={description}
             >
               詳細資訊
