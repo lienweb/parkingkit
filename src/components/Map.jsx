@@ -1,10 +1,9 @@
 import 'leaflet/dist/leaflet.css';
 import './map.scss';
-import L from 'leaflet';
 import {
-  MapContainer, TileLayer, ZoomControl, Marker, Popup,
+  MapContainer, TileLayer, ZoomControl,
 } from 'react-leaflet';
-import marker from '../assets/marker.png';
+// import marker from '../assets/marker.png';
 import LocateButton from './LocateButton';
 import SearchButton from './SearchButton';
 import ParkingMarkers from './ParkingMarkers';
@@ -12,12 +11,12 @@ import ParkingMarkers from './ParkingMarkers';
 function Map() {
   const center = { lat: 25.026312001265776, lng: 121.5435894427204 };
   const zoomLevel = 15;
-  const markerIcon = new L.Icon({
-    iconUrl: marker,
-    iconSize: [24, 36],
-    iconAnchor: [12, 36], // align when zoom in out
-    popupAnchor: [0, -46],
-  });
+  // const markerIcon = new L.Icon({
+  //   iconUrl: marker,
+  //   iconSize: [24, 36],
+  //   iconAnchor: [12, 36], // align when zoom in out
+  //   popupAnchor: [0, -46],
+  // });
 
   return (
     <div className="map__container">
@@ -34,11 +33,11 @@ function Map() {
         <ZoomControl position="bottomright" />
         <SearchButton position="topleft" />
         <LocateButton center={center} />
-        <Marker position={[center.lat, center.lng]} icon={markerIcon}>
+        {/* <Marker position={[center.lat, center.lng]} icon={markerIcon}>
           <Popup>
             <b>當前位置</b>
           </Popup>
-        </Marker>
+        </Marker> */}
         <ParkingMarkers />
       </MapContainer>
     </div>

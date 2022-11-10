@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import marker from '../assets/marker-dot.png';
+import marker from '../assets/marker-dot.svg';
 import './map.scss';
 
 function LocateButton({ center }) {
@@ -18,19 +18,21 @@ function LocateButton({ center }) {
     setPosition(e.latlng);
     map.flyTo(e.latlng, map.getZoom());
     // add marker radius
-    const radius = e.accuracy;
-    const currentRadius = L.circleMarker(e.latlng, {
-      radius,
-      color: '#136AEC',
-      stroke: false,
-      opacity: 0.25,
-    });
-    currentRadius.addTo(map);
+    // const radius = e.accuracy;
+    // const currentRadius = L.circleMarker(e.latlng, {
+    //   radius,
+    //   color: '#0D47A1',
+    //   stroke: false,
+    //   opacity: 0.25,
+    // });
+    // currentRadius.addTo(map);
   }
   function handleLocationNotFound() {
     // eslint-disable-next-line no-alert
     window.alert('無法定位，定位為預設地點');
-    map.flyTo(center);
+    map.flyTo(center, map.getZoom());
+    map.setView(center, 18); // locate to default
+    setPosition(center);
   }
   function handleOnFindLocation() {
     map.locate({
@@ -68,9 +70,7 @@ function LocateButton({ center }) {
     : (
       <Marker position={position} icon={circleIcon}>
         <Popup>
-          You are here:
-          {' '}
-          {position.toString().slice(7, -1)}
+          當前位置
           <br />
         </Popup>
       </Marker>

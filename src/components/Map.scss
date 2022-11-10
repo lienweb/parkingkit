@@ -11,8 +11,45 @@
 
 .leaflet-control {}
 
-.leaflet-touch .leaflet-bar{
+.leaflet-touch .leaflet-bar {
   border: none;
+}
+
+.leaflet-geosearch-button form.open input {
+  box-shadow: none;
+}
+
+.container-fluid.popup__container {
+  padding: 0;
+}
+
+/* leaflet marker clustering */
+div.marker-cluster-small {
+  background-color: rgba(154, 171, 229, 0.6);
+}
+
+div.marker-cluster-small div {
+  background-color: #5472d3;
+}
+
+div.marker-cluster-medium {
+  background-color: rgba(66, 136, 240, 0.6);
+}
+
+div.marker-cluster-medium div {
+  background-color: #0d47a1;
+}
+
+div.marker-cluster-large {
+  background-color: rgb(26, 94, 255, 0.5)
+}
+
+div.marker-cluster-large div {
+  background-color: #002171;
+}
+
+.markercluster span {
+  color: #fff;
 }
 
 .btn-wrapper {
@@ -24,4 +61,3 @@
     padding: 3px;
   }
 }
-
