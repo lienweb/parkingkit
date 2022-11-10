@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import NavBar from './components/Navbar';
 import Map from './components/Map';
 

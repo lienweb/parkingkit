@@ -7,6 +7,11 @@ body,
   font-family: 'Noto Sans TC', sans-serif;
 }
 
+:root {
+  --bs-primary: #0d47a1;
+  --bs-secondary: #5472d3;
+}
+
 .App {
   position: relative;
   width: 100%;
@@ -16,6 +21,26 @@ body,
 button {
   border: none;
   box-shadow: none;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+  }
+}
+
+span.bg-primary{ 
+  background-color: var(--bs-primary) !important;
 }
 
 .image__fluid {

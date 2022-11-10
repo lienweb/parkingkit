@@ -3,7 +3,6 @@ import './map.scss';
 import {
   MapContainer, TileLayer, ZoomControl,
 } from 'react-leaflet';
-// import NavBar from './Navbar';
 import LocateButton from './LocateButton';
 import SearchButton from './SearchButton';
 import ParkingMarkers from './ParkingMarkers';
@@ -14,7 +13,6 @@ function Map() {
 
   return (
     <div className="map__container">
-      {/* <NavBar /> */}
       <MapContainer
         center={[center.lat, center.lng]}
         zoom={zoomLevel}
