@@ -1,16 +1,32 @@
 .parking-lot-detail {
   position: absolute;
   bottom: 0;
-  max-width: 400px;
-  height: 100vh;
-  padding: 20px;
-  z-index: 999;
+  max-width: 430px;
+  height: 90vh;
+  // padding-top: 10vh;
+  z-index: 1000;
   background-color: #fff;
-  border-radius: 10px 10px 0 0;
   overflow-y: scroll;
+  color: #0a3576;
+  box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 1);
+}
+
+.parking-detail__container {
+  background-color: #5472d3;
+  color: #fff;
+
+  & .material-icons {
+    color: #fff;
+  }
+}
+
+h4>.material-icons {
+  font-size: 22px;
 }
 
 .btn-back {
+  width: 30px;
+  height: 28px;
   padding: 0;
   background-color: rgba(0, 0, 0, 0);
   box-shadow: none;
@@ -22,4 +38,13 @@
 
 .btn-detail {
   padding: 0;
+}
+
+.text__nav-link {
+  color: var(--bs-primary);
+  text-decoration: none;
+}
+
+.btn__group{
+  border-bottom: 1px solid rgba(154, 171, 229, 0.6);
 }

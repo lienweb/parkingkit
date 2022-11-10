@@ -1,15 +1,20 @@
 import { useState } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './parkingLotDetail.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function ParkingLotDetail() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [isClicked, setClicked] = useState(true);
-  console.log(state.fareInfo);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  // console.log(state.fareInfo);
 
   function handleOnClick() {
     setClicked(false);
@@ -24,102 +29,101 @@ function ParkingLotDetail() {
         transition: 'display .2s ease-out',
       } : { display: 'none' }}
     >
-      <div className="d-flex align-self-end">
-        <button type="button" className="image__fixed-width-1 btn-back me-3" onClick={handleOnClick}>
+      <div className="parking-detail__container d-flex align-self-end px-4 py-4">
+        <button type="button" className="btn-back me-3" onClick={handleOnClick}>
           <span className="material-icons material-symbols-outlined">
             arrow_back
           </span>
         </button>
         <h3 className="m-0">{state.name || '未提供資料'}</h3>
       </div>
-      <button type="button" className="image__fixed-width-1 btn-back me-3">
-        <span className="material-icons material-symbols-outlined">
-          bookmark_add
-        </span>
-      </button>
-      <Container className="mt-4">
-        <Row>
-          <Col md={12}>
-            <h3>
-              車位資訊：剩餘
+      <Container>
+        <Row className="btn__group d-flex justify-content-evenly px-3 py-1">
+          <Col className="d-flex align-items-center flex-column">
+            <Button variant="primary" className="d-flex align-items-center flex-column" onClick={handleShow}>
+              <span className="material-icons material-symbols-outlined md-24 text-white">
+                contact_support
+              </span>
+              <h5 className="mt-1">我要回報</h5>
+            </Button>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>ParkingKit</Modal.Header>
+              <Modal.Body className="text-center">已成功回報</Modal.Body>
+            </Modal>
+          </Col>
+          <Col>
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${state.name}`} className="d-flex align-items-center text__nav-link flex-column btn btn-primary">
+              <span className="material-icons material-symbols-outlined md-24 text-white">
+                near_me
+              </span>
+              <h5 className="mt-1 text-white">導航</h5>
+            </a>
+          </Col>
+        </Row>
+        <Row className="px-5 py-4">
+          <Col md={12} className="d-flex align-items-center">
+            <span className="material-icons material-symbols-outlined md-36 me-2">
+              directions_car
+            </span>
+            <h4 className="mt-1">
+              {'  '}
+              剩餘
               {' '}
-              {state.availablecar}
+              {state.availablecar < 0 ? 0 : state.availablecar}
               {' '}
               / 總共
               {' '}
-              {state.totalCar}
-            </h3>
+              {state.totalCar < 0 ? 0 : state.totalCar}
+            </h4>
           </Col>
-          <Col md={7} className="d-flex">
-            <div className="image__fixed-width-1">
-              <span className="material-icons material-symbols-outlined">
-                attach_money
-              </span>
-            </div>
-            <h3 className="image__text">{(Object.keys(state.fareInfo).length === 0) ? '無資料' : state.fareInfo.WorkingDay[0].Fare}</h3>
+          <Col md={12} className="d-flex align-items-center">
+            <span className="material-icons material-symbols-outlined md-36 me-2">
+              two_wheeler
+            </span>
+            <h4 className="mt-1">
+              剩餘
+              {' '}
+              {state.availablemotor < 0 ? 0 : state.availablemotor}
+              {' '}
+              / 總共
+              {' '}
+              {state.totalMotor < 0 ? 0 : state.totalMotor}
+            </h4>
           </Col>
-        </Row>
-        <Row className="my-3">
-          <Col md={7} className="d-flex">
-            <div className="image__fixed-width-2 me-1">
-              <span className="material-icons material-symbols-outlined">
-                location_on
-              </span>
-            </div>
-            <h3 className="image__text">
+          <Col md={7} className="d-flex align-items-center">
+            <span className="material-icons material-symbols-outlined md-36 me-2">
+              attach_money
+            </span>
+            <h4 className="mt-1">{(Object.keys(state.fareInfo).length === 0) ? '無資料' : state.fareInfo.WorkingDay[0].Fare}</h4>
+          </Col>
+          <Col md={12} className="d-flex align-items-center">
+            <span className="material-icons material-symbols-outlined md-36 me-1">
+              location_on
+            </span>
+            <h4 className="mt-1">
               {state.address}
-              <span className="material-icons material-symbols-outlined">
+              {/* <span className="material-icons material-symbols-outlined ms-2">
                 content_copy
-              </span>
-            </h3>
+              </span> */}
+            </h4>
           </Col>
-        </Row>
-        <Row className="my-3">
-          <Col md={7} className="d-flex">
-            <div className="image__fixed-width-1 me-3">
-              <span className="material-icons material-symbols-outlined">
-                location_city
-              </span>
-            </div>
-            <h3 className="image__text">{state.serviceTime.length ? state.serviceTime : '無資料'}</h3>
+          <Col md={12} className="d-flex align-items-start mt-2">
+            <span className="material-icons material-symbols-outlined md-36 me-2 mt-1">
+              location_city
+            </span>
+            <h4 className="mt-1">{state.serviceTime.length ? state.serviceTime : '無資料'}</h4>
           </Col>
-        </Row>
-        <Row className="my-3">
-          <Col md={7} className="d-flex">
-            <div className="image__fixed-width-1 me-3">
-              <span className="material-icons material-symbols-outlined">
-                info
-              </span>
-            </div>
-            <h3 className="image__text">{state.payDescription.length ? state.payDescription : '無資料'}</h3>
+          <Col md={12} className="d-flex align-items-start mt-2">
+            <span className="material-icons material-symbols-outlined md-36 me-2 mt-1">
+              info
+            </span>
+            <h4 className="mt-1">{state.payDescription.length ? state.payDescription : '無資料'}</h4>
           </Col>
-          <Col md={5}>
-            <Link to="/" className="d-flex">
-              <div className="image__fixed-width">
-                <span className="material-icons material-symbols-outlined">
-                  near_me
-                </span>
-              </div>
-              <h3 className="image__text">導航</h3>
-            </Link>
-          </Col>
-        </Row>
-        <Row className="my-3">
-          <Col md={7} className="d-flex">
-            <div className="image__fixed-width-1 me-3">
-              <span className="material-icons material-symbols-outlined">
-                call
-              </span>
-            </div>
-            <h3 className="image__text">{state.tel.length ? state.tel : '無資料'}</h3>
-          </Col>
-          <Col md={5} className="d-flex">
-            <div className="image__fixed-width">
-              <span className="material-icons material-symbols-outlined">
-                contact_support
-              </span>
-            </div>
-            <h3 className="image__text">我要回報</h3>
+          <Col md={12} className="d-flex align-items-center mt-2">
+            <span className="material-icons material-symbols-outlined md-36 me-2">
+              call
+            </span>
+            <h4 className="mt-1">{state.tel.length ? state.tel : '無資料'}</h4>
           </Col>
         </Row>
       </Container>

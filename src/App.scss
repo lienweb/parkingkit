@@ -12,6 +12,10 @@ body,
   --bs-secondary: #5472d3;
 }
 
+h3 {
+  font-size: 22px;
+}
+
 .App {
   position: relative;
   width: 100%;
@@ -26,6 +30,12 @@ button {
 .btn-primary {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+  }
 }
 
 .btn-secondary {
@@ -39,7 +49,7 @@ button {
   }
 }
 
-span.bg-primary{ 
+span.bg-primary {
   background-color: var(--bs-primary) !important;
 }
 
@@ -48,27 +58,16 @@ span.bg-primary{
   width: 100%;
 }
 
-.image__fixed-width-1 {
-  width: 30px;
-  height: 28px;
-}
-
-.image__fixed-width-2 {
-  width: 35px;
-  height: 28px;
-}
-
-.image__text {
-  margin: 0;
-  font-size: 26px;
-}
-
 .image__lg {
   border-radius: 10px;
   object-fit: cover;
 }
 
 /* Rules for sizing the icon. */
+.material-icons {
+  color: #0a3576;
+}
+
 .material-icons.md-18 {
   font-size: 18px;
 }
@@ -101,4 +100,19 @@ span.bg-primary{
 
 .material-icons.md-light.md-inactive {
   color: rgba(255, 255, 255, 0.3);
+}
+
+.scrollbar {
+  padding-left: 6px;
+
+  // 整體的樣式
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  // bar的樣式
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }
