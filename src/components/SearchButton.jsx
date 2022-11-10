@@ -3,7 +3,7 @@ import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import 'leaflet-geosearch/assets/css/leaflet.css';
-import marker from '../assets/marker.png';
+import marker from '../assets/marker.svg';
 
 function SearchButton({ position }) {
   const map = useMap();
