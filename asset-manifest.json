@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/parkingkit/static/css/main.6253c212.css",
-    "main.js": "/parkingkit/static/js/main.0c10c673.js",
+    "main.js": "/parkingkit/static/js/main.71e46391.js",
     "static/js/787.ac070021.chunk.js": "/parkingkit/static/js/787.ac070021.chunk.js",
     "static/media/logo.svg": "/parkingkit/static/media/logo.66da1067d066bafd821a86d4ebbc71ce.svg",
     "index.html": "/parkingkit/index.html",
     "main.6253c212.css.map": "/parkingkit/static/css/main.6253c212.css.map",
-    "main.0c10c673.js.map": "/parkingkit/static/js/main.0c10c673.js.map",
+    "main.71e46391.js.map": "/parkingkit/static/js/main.71e46391.js.map",
     "787.ac070021.chunk.js.map": "/parkingkit/static/js/787.ac070021.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6253c212.css",
-    "static/js/main.0c10c673.js"
+    "static/js/main.71e46391.js"
   ]
 }
