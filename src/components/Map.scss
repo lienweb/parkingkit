@@ -15,6 +15,13 @@
   border: none;
 }
 
+.leaflet-touch .leaflet-bar a,
+.geosearch.leaflet-control-geosearch a.leaflet-bar-part:before,
+.geosearch.leaflet-control-geosearch a.leaflet-bar-part:after {
+  color: #0a3576;
+  border-color: #0a3576;
+}
+
 .leaflet-geosearch-button form.open input {
   box-shadow: none;
 }
