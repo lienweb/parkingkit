@@ -16,10 +16,12 @@ const router = createBrowserRouter(
       path: '/',
       element: <App />,
       errorElement: <ErrorPage />,
-    },
-    {
-      path: 'parking-lot/:id',
-      element: <ParkingLotDetail />,
+      children: [
+        {
+          path: 'parking-lot/:id',
+          element: <ParkingLotDetail />,
+        },
+      ],
     },
   ],
   {

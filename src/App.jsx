@@ -1,4 +1,5 @@
 import './App.scss';
+import { Outlet } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Map from './components/Map';
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Map />
+      <Outlet />
     </div>
   );
 }

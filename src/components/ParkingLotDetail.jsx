@@ -1,36 +1,42 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import './parkingLotDetail.scss';
 import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './parkingLotDetail.scss';
-// import illustation from '../assets/parking-lot-detail-page.svg';
-// import parkingLotImg from '../assets/parking-lot-example.jpeg';
 
 function ParkingLotDetail() {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const [isClicked, setClicked] = useState(true);
   console.log(state.fareInfo);
 
+  function handleOnClick() {
+    setClicked(false);
+    navigate(-1);
+  }
+
   return (
-    <>
-      <Navbar bg="light" expand="md">
-        <Container className="align-self-end my-3">
-          <div className="d-flex align-self-end">
-            <button type="button" className="image__fixed-width-1 btn-back me-3" onClick={() => { navigate(-1); }}>
-              <span className="material-icons material-symbols-outlined">
-                arrow_back
-              </span>
-            </button>
-            <h3 className="m-0">{state.name}</h3>
-          </div>
-          <button type="button" className="image__fixed-width-1 btn-back me-3">
-            <span className="material-icons material-symbols-outlined">
-              bookmark_add
-            </span>
-          </button>
-        </Container>
-      </Navbar>
+    <div
+      className="parking-lot-detail"
+      style={isClicked ? {
+        display: 'block',
+        transition: 'display .2s ease-out',
+      } : { display: 'none' }}
+    >
+      <div className="d-flex align-self-end">
+        <button type="button" className="image__fixed-width-1 btn-back me-3" onClick={handleOnClick}>
+          <span className="material-icons material-symbols-outlined">
+            arrow_back
+          </span>
+        </button>
+        <h3 className="m-0">{state.name || '未提供資料'}</h3>
+      </div>
+      <button type="button" className="image__fixed-width-1 btn-back me-3">
+        <span className="material-icons material-symbols-outlined">
+          bookmark_add
+        </span>
+      </button>
       <Container className="mt-4">
         <Row>
           <Col md={12}>
@@ -115,12 +121,9 @@ function ParkingLotDetail() {
             </div>
             <h3 className="image__text">我要回報</h3>
           </Col>
-          <Col>
-            {/* <img src={illustation} alt="illustation" /> */}
-          </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
 
