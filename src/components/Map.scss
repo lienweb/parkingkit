@@ -3,11 +3,13 @@
   bottom: 0;
   width: 100%;
   height: calc(100vh - 60px);
+  max-height: -webkit-fill-available;
 }
 
 .leaflet-container {
   width: 100%;
   height: calc(100vh - 60px);
+  max-height: -webkit-fill-available;
   overflow: hidden;
 }
 

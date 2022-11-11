@@ -3,7 +3,7 @@ import { Marker, Popup } from 'react-leaflet';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Container, Badge } from 'react-bootstrap';
-import './parkingLotDetail.scss';
+import './ParkingLotDetail.scss';
 import marker from '../assets/marker.svg';
 
 function ParkingMarker({ position, description }) {
