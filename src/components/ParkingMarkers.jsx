@@ -57,7 +57,7 @@ function ParkingMarkers() {
       setAvailability(res);
       console.log('update');
     }).catch((err) => console.log(`skip update:${err}`));
-  }, 60000);
+  }, 120000);
 
   // console.log(`info:${coordinates.length}`);
   // console.log(`2)avail:${availability.length}`);
@@ -70,14 +70,14 @@ function ParkingMarkers() {
 
     return {
       id: coordinate.id,
-      name: coordinate.name,
-      address: `台北市${coordinate.area}${coordinate.address}`,
-      tel: coordinate.tel,
-      payDescription: coordinate.payex,
+      name: coordinate.name.length ? coordinate.name : '無資料',
+      address: coordinate.address.length ? `台北市${coordinate.area}${coordinate.address}` : '未提供地址',
+      tel: coordinate.tel.length ? coordinate.tel : '無資料',
+      payDescription: coordinate.payex.length ? coordinate.payex : '無相關資訊',
       fareInfo: coordinate.FareInfo,
-      serviceTime: coordinate.serviceTime,
-      totalCar: coordinate.totalcar,
-      totalMotor: coordinate.totalmotor,
+      serviceTime: coordinate.serviceTime.length ? coordinate.serviceTime : '無相關資訊',
+      totalCar: coordinate.totalcar ? coordinate.totalcar : 0,
+      totalMotor: coordinate.totalmotor ? coordinate.totalmotor : 0,
       lat: lat.toFixed(6),
       lng: lng.toFixed(6),
     };

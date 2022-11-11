@@ -22,7 +22,7 @@ function ParkingMarker({ position, description }) {
           <div className="d-flex justify-content-between align-items-center">
             <h5>
               剩餘:
-              {(description.availablecar < 0) ? '無資料' : description.availablecar}
+              {(description.availablecar < 0) ? 0 : description.availablecar}
               /總共:
               {description.totalCar ? description.totalCar : 'N/A'}
 

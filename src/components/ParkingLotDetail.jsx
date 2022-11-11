@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import './parkingLotDetail.scss';
+import { useLocation, Link } from 'react-router-dom';
+import './ParkingLotDetail.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +9,6 @@ import Modal from 'react-bootstrap/Modal';
 
 function ParkingLotDetail() {
   const { state } = useLocation();
-  const navigate = useNavigate();
   const [isClicked, setClicked] = useState(true);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -18,7 +17,6 @@ function ParkingLotDetail() {
 
   function handleOnClick() {
     setClicked(false);
-    navigate(-1);
   }
 
   return (
@@ -26,15 +24,16 @@ function ParkingLotDetail() {
       className="parking-lot-detail"
       style={isClicked ? {
         display: 'block',
-        transition: 'display .2s ease-out',
       } : { display: 'none' }}
     >
       <div className="parking-detail__container d-flex align-self-end px-4 py-4">
-        <button type="button" className="btn-back me-3" onClick={handleOnClick}>
-          <span className="material-icons material-symbols-outlined">
-            arrow_back
-          </span>
-        </button>
+        <Link to="/">
+          <button type="button" className="btn-back me-3" onClick={handleOnClick}>
+            <span className="material-icons material-symbols-outlined">
+              arrow_back
+            </span>
+          </button>
+        </Link>
         <h3 className="m-0">{state.name || '未提供資料'}</h3>
       </div>
       <Container>
