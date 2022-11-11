@@ -17,15 +17,6 @@ function LocateButton({ center }) {
     // set & get lat lng
     setPosition(e.latlng);
     map.flyTo(e.latlng, map.getZoom());
-    // add marker radius
-    // const radius = e.accuracy;
-    // const currentRadius = L.circleMarker(e.latlng, {
-    //   radius,
-    //   color: '#0D47A1',
-    //   stroke: false,
-    //   opacity: 0.25,
-    // });
-    // currentRadius.addTo(map);
   }
   function handleLocationNotFound() {
     // eslint-disable-next-line no-alert
@@ -53,7 +44,7 @@ function LocateButton({ center }) {
 
     buttonControl.onAdd = function () {
       this.div = L.DomUtil.create('button', 'btn-wrapper');
-      const buttonElement = '<i class="material-icons material-symbols-outlined">my_location</i>';
+      const buttonElement = '<i class="material-icons material-symbols-outlined" data-testid="locate-me">my_location</i>';
       this.div.innerHTML = buttonElement;
       this.div.addEventListener('click', handleOnFindLocation);
       return this.div;

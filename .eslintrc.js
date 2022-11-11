@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    'jest/globals': true,
   },
   extends: [
     'plugin:react/recommended',
@@ -20,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'jest',
   ],
   rules: {
     // "quotes": ["error", "double"],
@@ -40,5 +42,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/forbid-prop-types': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };
