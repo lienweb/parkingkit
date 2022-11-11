@@ -6,15 +6,7 @@
 React 18 \
 React Router v6 \
 圖資 OpenStreetMap \
-Leaflet + react leaflet \
-
-
-## Table of Contents
-[Features](https://github.com/lienweb/alpha_shop/#features) \
-[Development Guidelines](https://github.com/lienweb/parkingkit/#development-guidelines) \
-[Installation Instruction](https://github.com/lienweb/alpha_shop/#installation-instruction) \
-[Deployment](https://github.com/lienweb/alpha_shop/#deployment) \
-[Built With](https://github.com/lienweb/alpha_shop/#built-With)
+Leaflet + react leaflet
 
 
 ## Features
