@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# ParkingKit
+使用臺北市停車管理工程處公開資料製作停車位搜尋project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Tech Stack
+React 18 \
+React Router v6 \
+圖資 OpenStreetMap \
+Leaflet + react leaflet \
 
-In the project directory, you can run:
 
-### `npm start`
+## Table of Contents
+[Features](https://github.com/lienweb/alpha_shop/#features) \
+[Development Guidelines](https://github.com/lienweb/parkingkit/#development-guidelines) \
+[Installation Instruction](https://github.com/lienweb/alpha_shop/#installation-instruction) \
+[Deployment](https://github.com/lienweb/alpha_shop/#deployment) \
+[Built With](https://github.com/lienweb/alpha_shop/#built-With)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+可分為以下區塊：
 
-### `npm run build`
+地圖
+- [x] 點選按鈕即可定位當前位置
+- [x] 搜尋地標找附近停車場
+- [x] 點選停車場可快速查看價格、名稱、剩餘汽車車位、是否營業
+- [x] 點選停車場詳細資訊按鈕，可查看
+  - 停車場計費說明
+  - 汽車停車位剩餘數量
+  - 機車停車位剩餘數量
+  - 營業時間
+  - 聯絡電話
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project setup
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Compiles and hot-reloads for development
+```
+npm start
+```
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Compiles, minifies and deploy for production
+```
+npm run deploy
+```
