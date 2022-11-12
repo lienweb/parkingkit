@@ -11,11 +11,10 @@ const fetchInfo = async () => {
   } catch (err) {
     if (err.response) {
       // if res code not 200
-      console.log(`${err.response.data}|${err.response.status
-      }|${err.response.headers}`);
+      // console.log(`${err.response.data}|${err.response.status}|${err.response.headers}`);
     } else {
       // if 404 or no res
-      console.log(`Err:${err.message}`);
+      // console.log(`Err:${err.message}`);
     }
   }
   return null;
@@ -28,10 +27,10 @@ const fetchAvailability = async () => {
   } catch (err) {
     if (err.response) {
       // if res code not 200
-      console.log(`${err.response.data}|${err.response.status}|${err.response.headers}`);
+      // console.log(`${err.response.data}|${err.response.status}|${err.response.headers}`);
     } else {
       // if 404 or no res
-      console.log(`Err:${err.message}`);
+      // console.log(`Err:${err.message}`);
     }
   }
   return null;

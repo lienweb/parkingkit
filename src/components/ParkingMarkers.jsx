@@ -4,6 +4,20 @@ import MarkerClusterGroup from './MarkerClusterGroup';
 import parkingLotApis from '../apis/parkingLot';
 import ParkingMarker from './ParkingMarker';
 
+function convertCoordinate(tw97x, tw97y) {
+  proj4.defs([
+    ['EPSG:3826', '+proj=tmerc +lat_0=0 +lon_0=121 +k=0.9999 +x_0=250000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs +type=crs'],
+    ['EPSG:4326', '+proj=longlat +datum=WGS84 +no_defs +type=crs'],
+  ]);
+  const [lng, lat] = proj4('EPSG:3826', 'EPSG:4326', [parseFloat(tw97x), parseFloat(tw97y)]);
+  return [lat, lng];
+}
+
+function isCoordValid(lat, lng) {
+  return (lng > 120 && lng < 123
+    && lat < 26 && lat > 21);
+}
+
 function useInterval(callback, delay) {
   const savedCallback = useRef();
 
@@ -29,10 +43,6 @@ function useInterval(callback, delay) {
 function ParkingMarkers() {
   const [coordinates, setCoordinates] = useState([]);
   const [availability, setAvailability] = useState([]);
-  proj4.defs([
-    ['EPSG:3826', '+proj=tmerc +lat_0=0 +lon_0=121 +k=0.9999 +x_0=250000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs +type=crs'],
-    ['EPSG:4326', '+proj=longlat +datum=WGS84 +no_defs +type=crs'],
-  ]);
 
   // get data from api when component mounted
   useEffect(() => {
@@ -43,7 +53,6 @@ function ParkingMarkers() {
       ];
 
       Promise.allSettled(promises).then((values) => {
-        console.log(`${values[0].status}|${values[1].status}`);
         setCoordinates(values[0].value);
         setAvailability(values[1].value);
       });
@@ -55,18 +64,19 @@ function ParkingMarkers() {
     const newAvail = parkingLotApis.fetchAvailability();
     newAvail.then((res) => {
       setAvailability(res);
-      console.log('update');
     }).catch((err) => console.log(`skip update:${err}`));
   }, 120000);
 
-  // console.log(`info:${coordinates.length}`);
-  // console.log(`2)avail:${availability.length}`);
-
   // get coordinates
-  const coordArr = coordinates.map((coordinate) => {
+  const coordArr = coordinates.filter((coordinate) => {
     // convert coordinates
+    const { tw97x: tw97xTest, tw97y: tw97yTest } = coordinate;
+    const [lat, lng] = convertCoordinate(tw97xTest, tw97yTest);
+
+    return isCoordValid(lat, lng);
+  }).map((coordinate) => {
     const { tw97x, tw97y } = coordinate;
-    const [lng, lat] = proj4('EPSG:3826', 'EPSG:4326', [parseFloat(tw97x), parseFloat(tw97y)]);
+    const [lat, lng] = convertCoordinate(tw97x, tw97y);
 
     return {
       id: coordinate.id,
@@ -105,8 +115,6 @@ function ParkingMarkers() {
       },
     };
   });
-
-  // console.log(infoArray);
 
   return (
     <MarkerClusterGroup>

@@ -13,7 +13,6 @@ function ParkingMarker({ position, description }) {
     iconAnchor: [12, 36],
     popupAnchor: [0, -46],
   });
-  // console.log(description);
 
   return (
     <Marker position={[parseFloat(position.lat), position.lng]} icon={markerIcon}>

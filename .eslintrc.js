@@ -43,5 +43,7 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'array-callback-return': 'off',
+    'consistent-return': 'off',
   },
 };
