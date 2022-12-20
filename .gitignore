@@ -24,3 +24,6 @@ yarn-error.log*
 
 # data source
 #/public/data
+
+# Local Netlify folder
+.netlify

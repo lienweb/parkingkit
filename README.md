@@ -1,7 +1,7 @@
 # ParkingKit
 使用臺北市停車管理工程處公開資料，製作停車位搜尋app
 
-[Demo](https://lienweb.github.io/parkingkit/)
+[Demo](https://emilydev-parkingkit.netlify.app/)
 
 
 
