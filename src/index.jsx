@@ -24,9 +24,6 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  {
-    basename: '/parkingkit',
-  },
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
